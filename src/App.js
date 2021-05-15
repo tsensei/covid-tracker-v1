@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 function App() {
-  const country = useRef("Bangladesh");
+  const country = useRef("all");
 
   const [apiData, setApiData] = useState([]);
   const [countryChanged, setCountryChanged] = useState(false);
@@ -9,9 +9,7 @@ function App() {
 
   useEffect(() => {
     const getData = () => {
-      fetch(
-        `https://coronavirus-19-api.herokuapp.com/countries/${country.current}`
-      )
+      fetch(`https://coronavirus-19-api.herokuapp.com/${country.current}`)
         .then((res) => res.json())
         .then((result) => {
           setApiData(result);
@@ -37,7 +35,7 @@ function App() {
               type="text"
               className="search-input"
               onChange={(e) => {
-                country.current = e.target.value;
+                country.current = "countries/" + e.target.value;
               }}
             />
           </div>
