@@ -64,7 +64,7 @@ main {
 }
 
 .country-header {
-  margin: 2rem 0 1rem;
+  margin: 1.2rem 0 1rem;
   font-size: 2.5rem;
   font-weight: 600;
 }
@@ -129,6 +129,12 @@ main {
   box-shadow: 0 5px #e74c3c;
 }
 
+.footer a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 @media only screen and (min-width: 600px) {
   .search-box {
     width: 40%;
@@ -144,5 +150,23 @@ main {
 
   .card {
     margin-top: 2.5rem;
+  }
+
+  .country-header {
+    margin: 2rem 0 1rem;
+  }
+}
+
+@media screen and (max-height: 710px) {
+  main {
+    padding: 10px;
+  }
+
+  .card {
+    margin-top: 0.4rem;
+  }
+
+  .total-cases div {
+    font-size: 1.5rem;
   }
 }

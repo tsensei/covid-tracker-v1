@@ -84,7 +84,10 @@ function App() {
           <h2>Loading</h2>
         )}
 
-        <div className="footer">Made with ❤️️ by tsensei</div>
+        <div className="footer">
+          Made with ❤️️ by{" "}
+          <a href="https://www.instagram.com/_tsensei_/">tsensei</a>
+        </div>
       </main>
     </div>
   );
