@@ -136,6 +136,10 @@ main {
 }
 
 @media only screen and (min-width: 600px) {
+  .app {
+    background: url("./assets/wp5418527.jpg");
+    background-size: cover;
+  }
   .search-box {
     width: 40%;
   }

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import covidLogo from "../src/assets/images/covid-19.svg";
-import locationLogo from "../src/assets/images/location.svg";
+// import locationLogo from "../src/assets/images/location.svg";
 import searchLogo from "../src/assets/images/search.svg";
 
 function App() {
@@ -51,9 +51,9 @@ function App() {
           >
             <img src={searchLogo} className="nav-icon" alt="search-icon" />
           </div>
-          <div className="location-icon ico">
+          {/* <div className="location-icon ico">
             <img src={locationLogo} className="nav-icon" alt="location-icon" />
-          </div>
+          </div> */}
         </div>
 
         {typeof apiData.cases !== "undefined" ? (
