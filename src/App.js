@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function App() {
-  const [country, setCountry] = useState("Bangladesh");
+  const country = useRef("Bangladesh");
+
   const [apiData, setApiData] = useState([]);
   const [countryChanged, setCountryChanged] = useState(false);
   const date = new Date();
 
   useEffect(() => {
     const getData = () => {
-      fetch(`https://coronavirus-19-api.herokuapp.com/countries/${country}`)
+      fetch(
+        `https://coronavirus-19-api.herokuapp.com/countries/${country.current}`
+      )
         .then((res) => res.json())
         .then((result) => {
           setApiData(result);
@@ -34,9 +37,8 @@ function App() {
               type="text"
               className="search-input"
               onChange={(e) => {
-                setCountry(e.target.value);
+                country.current = e.target.value;
               }}
-              value={country}
             />
           </div>
           <div
@@ -62,7 +64,7 @@ function App() {
 
         {typeof apiData.cases !== "undefined" ? (
           <div className="container">
-            <div className="country-header">{apiData.country}</div>
+            <div className="country-header">{apiData.country ?? "Global"}</div>
             <div className="current-time">
               {date.toLocaleString("default", { month: "long" })}{" "}
               {date.getDate()},{date.getFullYear()}
@@ -73,7 +75,7 @@ function App() {
             </div>
             <div className="card active-cases">
               <div className="card-header">Active Cases</div>
-              <div className="card-body">{apiData.active}</div>
+              <div className="card-body">{apiData.active ?? "n/a"}</div>
             </div>
             <div className="card recovered-cases">
               <div className="card-header">Recovered</div>
