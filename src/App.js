@@ -1,4 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import covidLogo from "../src/assets/images/covid-19.svg";
+import locationLogo from "../src/assets/images/location.svg";
+import searchLogo from "../src/assets/images/search.svg";
 
 function App() {
   const country = useRef("all");
@@ -24,11 +27,7 @@ function App() {
       <main>
         <div className="search-box">
           <div className="covid-svg ico">
-            <img
-              src="images/covid-19.svg"
-              className="nav-icon"
-              alt="covid-icon"
-            />
+            <img src={covidLogo} className="nav-icon" alt="covid-icon" />
           </div>
           <div className="search-input">
             <input
@@ -36,6 +35,11 @@ function App() {
               className="search-input"
               onChange={(e) => {
                 country.current = "countries/" + e.target.value;
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setCountryChanged(!countryChanged);
+                }
               }}
             />
           </div>
@@ -45,18 +49,10 @@ function App() {
               setCountryChanged(!countryChanged);
             }}
           >
-            <img
-              src="images/search.svg"
-              className="nav-icon"
-              alt="search-icon"
-            />
+            <img src={searchLogo} className="nav-icon" alt="search-icon" />
           </div>
           <div className="location-icon ico">
-            <img
-              src="images/location.svg"
-              className="nav-icon"
-              alt="location-icon"
-            />
+            <img src={locationLogo} className="nav-icon" alt="location-icon" />
           </div>
         </div>
 
