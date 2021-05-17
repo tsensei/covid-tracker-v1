@@ -168,9 +168,14 @@ main {
 
   .card {
     margin-top: 0.4rem;
+    margin-bottom: 2rem;
   }
 
   .total-cases div {
     font-size: 1.5rem;
+  }
+
+  .search-input {
+    margin: 0 0.2rem;
   }
 }

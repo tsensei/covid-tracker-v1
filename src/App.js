@@ -32,6 +32,7 @@ function App() {
           <div className="search-input">
             <input
               type="text"
+              placeholder="Search by country..."
               className="search-input"
               onChange={(e) => {
                 country.current = "countries/" + e.target.value;
